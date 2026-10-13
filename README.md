@@ -61,6 +61,22 @@ The form will then `POST` the inquiry as JSON. **Never** place API keys or
 secrets in a `VITE_*` variable — those are bundled into the client. Keep any
 secret on the server behind that endpoint.
 
+## Deployment (GitHub Pages)
+
+The site is configured to publish to **GitHub Pages** at
+`https://khushalgoyal.github.io/wedlock/`.
+
+- `vite.config.ts` sets `base: '/wedlock/'` (the Pages sub-path). All media is
+  routed through `import.meta.env.BASE_URL`, so paths resolve correctly under
+  that sub-path.
+- `.github/workflows/deploy.yml` builds the site and deploys it via the official
+  Pages actions on every push to `main` or the working branch (and on manual
+  dispatch). It attempts to enable Pages automatically; if the first run reports
+  Pages isn't enabled, set **Settings → Pages → Build and deployment → Source:
+  GitHub Actions** once, then re-run the workflow.
+
+To host at a root domain instead, change `base` to `'/'`.
+
 ## Accessibility & performance
 
 - Respects `prefers-reduced-motion` (animations and parallax disable).
