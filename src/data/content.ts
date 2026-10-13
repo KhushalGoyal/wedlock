@@ -14,6 +14,25 @@ export const BRAND = {
     'A wedding design and planning studio crafting immersive celebrations — from the first floral gateway to the final firework.',
 };
 
+/** The studio's directors (provided by the business). */
+export interface Director {
+  name: string;
+  role: string;
+}
+
+export const DIRECTORS: Director[] = [
+  { name: 'Pawan Nagal', role: 'Director' },
+  { name: 'Dinesh Nagal', role: 'Director' },
+];
+
+/** Real social profiles only. */
+export const SOCIAL = {
+  instagram: {
+    handle: '@wedlock__events_',
+    url: 'https://www.instagram.com/wedlock__events_',
+  },
+};
+
 export interface NavLink {
   label: string;
   href: string;
@@ -25,6 +44,7 @@ export const NAV_LINKS: NavLink[] = [
   { label: 'Gallery', href: '#gallery' },
   { label: 'Services', href: '#services' },
   { label: 'Approach', href: '#approach' },
+  { label: 'Clients', href: '#clients' },
   { label: 'Inquire', href: '#inquiry' },
 ];
 
@@ -94,6 +114,36 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     category: 'sangeet',
   },
 ];
+
+/**
+ * Client / celebrations list.
+ * Only "Deepak & Neha" is a real, footage-supported entry. The rest are clearly
+ * marked placeholders (`placeholder: true`) — neutral slots to be replaced with
+ * real families/clients. Edit this array to update the Clients section; the UI
+ * styles placeholders distinctly so they're never mistaken for real names.
+ */
+export interface Client {
+  name: string;
+  detail?: string;
+  placeholder?: boolean;
+}
+
+export const CLIENTS: Client[] = [
+  { name: 'Deepak & Neha', detail: 'The Carnival · Destination Wedding' },
+  { name: 'Family Name', detail: 'Wedding · City', placeholder: true },
+  { name: 'Family Name', detail: 'Haldi & Mehendi · City', placeholder: true },
+  { name: 'Family Name', detail: 'Sangeet · City', placeholder: true },
+  { name: 'Family Name', detail: 'Reception · City', placeholder: true },
+  { name: 'Family Name', detail: 'Destination Wedding', placeholder: true },
+  { name: 'Family Name', detail: 'Corporate Event', placeholder: true },
+];
+
+export const CLIENTS_INTRO = {
+  eyebrow: 'In good company',
+  heading: 'Families who trusted us with their biggest day',
+  intro:
+    'Every celebration here was planned, designed and delivered end to end. We keep this list growing with each family we have the privilege to work with.',
+};
 
 export interface Service {
   title: string;

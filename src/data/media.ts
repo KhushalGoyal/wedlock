@@ -137,8 +137,11 @@ export const CATEGORIES: Category[] = [
   },
 ];
 
-const M = '/media';
-const P = '/media/posters';
+// Prefix with Vite's BASE_URL so paths work both at the site root (dev) and
+// under a sub-path like /wedlock/ (GitHub Pages). BASE_URL always ends in '/'.
+const BASE = import.meta.env.BASE_URL;
+const M = `${BASE}media`;
+const P = `${BASE}media/posters`;
 
 export const MEDIA: MediaAsset[] = [
   // ---------------- Images ----------------

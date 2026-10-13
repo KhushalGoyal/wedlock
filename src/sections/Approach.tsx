@@ -2,7 +2,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion
 import { useRef } from 'react';
 import Reveal from '../components/Reveal';
 import MediaThumb from '../components/MediaThumb';
-import { APPROACH } from '../data/content';
+import { APPROACH, DIRECTORS } from '../data/content';
 import { assetById } from '../data/media';
 
 export default function Approach() {
@@ -69,6 +69,32 @@ export default function Approach() {
               </Reveal>
             ))}
           </div>
+
+          {/* Directors — the people behind the studio */}
+          <Reveal from="up" delay={0.1}>
+            <div className="mt-4 rounded-lg border border-ivory/15 bg-ivory/[0.03] p-6">
+              <span className="eyebrow text-champagne/80">Led by</span>
+              <div className="mt-4 flex flex-wrap gap-x-10 gap-y-5">
+                {DIRECTORS.map((d) => (
+                  <div key={d.name} className="flex items-center gap-3">
+                    <span
+                      className="flex h-11 w-11 items-center justify-center rounded-full border border-champagne/40 font-serif text-lg text-champagne"
+                      aria-hidden
+                    >
+                      {d.name
+                        .split(' ')
+                        .map((p) => p[0])
+                        .join('')}
+                    </span>
+                    <span className="flex flex-col">
+                      <span className="font-serif text-lg text-ivory">{d.name}</span>
+                      <span className="text-xs uppercase tracking-wide2 text-ivory/50">{d.role}</span>
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

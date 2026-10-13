@@ -6,6 +6,8 @@ import ExploreByFunction from './sections/ExploreByFunction';
 import Gallery, { type GalleryFilter } from './sections/Gallery';
 import Services from './sections/Services';
 import Approach from './sections/Approach';
+import Clients from './sections/Clients';
+import Instagram from './sections/Instagram';
 import InquiryForm from './sections/InquiryForm';
 import Footer from './sections/Footer';
 import type { CategorySlug } from './data/media';
@@ -38,6 +40,8 @@ export default function App() {
         <Gallery filter={galleryFilter} onFilterChange={setGalleryFilter} />
         <Services />
         <Approach />
+        <Clients />
+        <Instagram />
         <InquiryForm />
       </main>
       <Footer />

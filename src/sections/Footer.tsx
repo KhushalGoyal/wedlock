@@ -1,4 +1,4 @@
-import { BRAND, NAV_LINKS } from '../data/content';
+import { BRAND, DIRECTORS, NAV_LINKS, SOCIAL } from '../data/content';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -21,6 +21,19 @@ export default function Footer() {
             <a href="#inquiry" className="btn btn-light">
               Plan Your Event
             </a>
+            <a
+              href={SOCIAL.instagram.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-ivory/70 transition-colors hover:text-ivory"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
+                <circle cx="12" cy="12" r="4.2" />
+                <circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none" />
+              </svg>
+              {SOCIAL.instagram.handle}
+            </a>
             <p className="text-xs text-ivory/45">By appointment · Destination weddings worldwide</p>
           </div>
         </div>
@@ -40,9 +53,14 @@ export default function Footer() {
               ))}
             </ul>
           </nav>
-          <p className="text-xs text-ivory/40">
-            © {year} {BRAND.name}. All rights reserved.
-          </p>
+          <div className="flex flex-col gap-1 sm:items-end">
+            <p className="text-xs text-ivory/55">
+              Directed by {DIRECTORS.map((d) => d.name).join(' & ')}
+            </p>
+            <p className="text-xs text-ivory/40">
+              © {year} {BRAND.name}. All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
